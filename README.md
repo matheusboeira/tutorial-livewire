@@ -56,7 +56,9 @@ php artisan make:livewire conducting.quality-assessment
 
 ## Exemplo Funcional
 
-Para ajudar no entendimento de como prosseguir, acredito que já existem alguns bons exemplos criados. Um deles é todo o `overall` do `planning`.
+Para ajudar no entendimento de como prosseguir, acredito que já existem alguns bons exemplos criados. Todos os cards do `Overall` da fase de `Planning` já foi recriada. Os arquivos de views estão em `resources/views/livewire/planning/overall`.
+
+
 
 
 
