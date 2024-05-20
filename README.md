@@ -58,6 +58,14 @@ php artisan make:livewire conducting.quality-assessment
 
 Para ajudar no entendimento de como prosseguir, acredito que já existem alguns bons exemplos criados. Todos os cards do `Overall` da fase de `Planning` já foi recriada. Os arquivos de views estão em `resources/views/livewire/planning/overall`.
 
+https://github.com/matheusboeira/tutorial-livewire/assets/76896958/71a6c86e-2989-4d47-b0e9-e64082944205
+
+Assim como as classes para essas views estão em `app/Livewire/Planning/Overall`. 
+
+https://github.com/matheusboeira/tutorial-livewire/assets/76896958/10eeee3d-00f5-4651-8917-205b1ac7e6fd
+
+
+
 
 
 
