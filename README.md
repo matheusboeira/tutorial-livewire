@@ -2,11 +2,7 @@
 
 Abaixo será demonstrado como criar e organizar os componentes do livewire na aplicação da `Thoth`. Os componentes do livewire servem para evitar o recarregamento desnecessário da página atual, isto é, executar alguma ação de CRUD e manter a página atual com os dados atualizados.
 
-
-
 https://github.com/matheusboeira/tutorial-livewire/assets/76896958/86f966a6-dad9-41a6-b8dd-727be662732b
-
-
 
 ## Pré-Requisitos
 
@@ -34,7 +30,9 @@ docker-compose exec app bash
 php artisan make:livewire Example
 ```
 
-O resultado será a criação dos arquivos `Livewire/Example.php` e `Views/Livewire/example.blade.php`. Estes arquivos podem ser visualizados (assim como o caminho de onde foram criados) após executar os comandos como mostra a figura abaixo.
+O resultado será a criação dos arquivos necessários (classe e view). Esses arquivos podem ser visualizados (assim como o caminho de onde foram criados) após executar os comandos como mostra a figura abaixo.
+
+### Visualizando os arquivos criados
 
 ![component created](/images/component-created.png)
 
@@ -53,7 +51,13 @@ Isso vale para o restante também. Se eu quiser criar um arquivo da fase de "Con
 ```bash
 php artisan make:livewire conducting.quality-assessment
 ```
-
-> Este comando vai criar dois arquivos: `Livewire/Conducting/QualityAssessments.php` e `Views/Livewire/conducting/quality-assessments.blade.php`.
-
+### Visualizando os arquivos criados
 ![quality assessment created](/images/quality-assessment-created.png)
+
+## Exemplo Funcional
+
+Para ajudar no entendimento de como prosseguir, acredito que já existem alguns bons exemplos criados. Um deles é todo o `overall` do `planning`.
+
+
+
+
