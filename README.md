@@ -56,7 +56,7 @@ php artisan make:livewire conducting.quality-assessment
 
 ## Exemplo Funcional
 
-Para ajudar no entendimento de como prosseguir, acredito que já existem alguns bons exemplos criados. Todos os cards do `Overall` da fase de `Planning` já foi recriada. Os arquivos de views estão em `resources/views/livewire/planning/overall`.
+Para ajudar no entendimento de como prosseguir, acredito que já existem alguns bons exemplos criados. Todos os cards do `Overall` da fase de `Planning` já foram recriados nesse padrão. Os arquivos de views estão em `resources/views/livewire/planning/overall`.
 
 https://github.com/matheusboeira/tutorial-livewire/assets/76896958/71a6c86e-2989-4d47-b0e9-e64082944205
 
@@ -64,10 +64,85 @@ Assim como as classes para essas views estão em `app/Livewire/Planning/Overall`
 
 https://github.com/matheusboeira/tutorial-livewire/assets/76896958/10eeee3d-00f5-4651-8917-205b1ac7e6fd
 
+## Como Usar
 
+Para chamar os arquivos de view criadas pelo livewire, existem duas opções:
 
+- Importar usando `@livewire('caminho.nome-do-componente')`
+- Importar usando `<livewire:caminho.nome-do-componente />`
 
+Ambas as opções funcionam da mesma forma, porém, usando a primeira opção pode ser mais fácil visualizar o componente, dependendo do editor que estiver usando.
 
+![imports](/images/imports1.png)
 
+![imports](/images/imports2.png)
+
+## Padrões do livewire
+
+Todas as tags do html possuem `binds` específicos para o livewire funcionar. Estes, são os atributos que começam com `wire:alguma-coisa`. 
+
+Na tela de views do domain, é possível ver que todos os inputs possuem `wire:model` para que o livewire consiga capturar os valores dos inputs e fazer as ações necessárias. 
+
+Assim como "wire:submit" para capturar o evento de submit do formulário.
+
+![wire model](/images/code1.png)
+
+É importante notar, que estes possuem valores específicos, como `wire:model="description"` e `wire:submit="submit"`.
+
+Essas variáveis são as determinadas na classe do componente, e os métodos são os métodos que estão na classe do componente.
+
+No exemplo dado, é feito um bind `wire:submit="submit"` para que o método `submit` seja chamado quando o formulário for submetido. O método `submit` deve estar contido na classe do componente.
+
+![alt text](/images/code2.png)
+
+## Rotas
+
+Normalmente, se for feito uma refatoração, não será necessário criar nenhuma rota para utilizar o componente. Basta ir no arquivo onde já existe um caminho de acesso e importar o componente.
+
+Em casos onde é necessário criar uma nova rota, basta ir no arquivo `web.php` e criar uma nova rota para o componente.
+
+```php
+# Método convencional
+Route::get('/conducting/quality-assessment', [QualityAssessmentController::class, 'index'])
+        ->name('conducting.quality-assessment.index')
+        ->middleware('auth');
+
+# Importando a classe do livewire diretamente
+Route::get('/conducting/quality-assessment', [QualityAssessment::class, 'render'])
+        ->name('conducting.quality-assessment')
+        ->middleware('auth');
+```
+
+> Nota-se que esse `->name('alguma-coisa')` é usado nas páginas que possuem `tabs`. O nome é usado para identificar a aba que está sendo acessada. No exemplo abaixo, está sendo usada no atributo "route".
+
+```php
+$tabs = [
+  'overview' => [
+      'icon' => 'fas fa-info-circle',
+      'label' => 'Overview',
+      'route' => 'projects.show',
+  ],
+  'planning' => [
+      'icon' => 'fas fa-calendar-alt',
+      'label' => 'Planning',
+      'route' => 'project.planning.index',
+  ],
+  'conducting' => [
+      'icon' => 'fas fa-tasks',
+      'label' => 'Conducting',
+      'route' => null,
+  ],
+  'reporting' => [
+      'icon' => 'fas fa-chart-bar',
+      'label' => 'Reporting',
+      'route' => 'reporting.index',
+  ],
+  'export' => [
+      'icon' => 'fas fa-file-export',
+      'label' => 'Export',
+      'route' => null,
+  ],
+];
+```
 
 
