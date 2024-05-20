@@ -2,6 +2,12 @@
 
 Abaixo será demonstrado como criar e organizar os componentes do livewire na aplicação da `Thoth`. Os componentes do livewire servem para evitar o recarregamento desnecessário da página atual, isto é, executar alguma ação de CRUD e manter a página atual com os dados atualizados.
 
+
+
+https://github.com/matheusboeira/tutorial-livewire/assets/76896958/86f966a6-dad9-41a6-b8dd-727be662732b
+
+
+
 ## Pré-Requisitos
 
 - Criar uma branch com base na `develop` mais recente
